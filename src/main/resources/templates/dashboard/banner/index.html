@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{dashboard/layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">SB Admin 2 - Blank</title>
+
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <div layout:fragment="content" class="container-fluid">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subtile</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td th:text="${banner.title}">Mark</td>
+                <td  th:text="${banner.subtitle}">Otto</td>
+                <td>
+                    <img width="80" height="80" th:src="${banner.photoUrl}">
+                </td>
+                <td>
+                    <a th:href="'/admin/banner/update/'+${banner.id}">Update</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

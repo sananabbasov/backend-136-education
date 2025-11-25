@@ -19,4 +19,6 @@ public class FeatureLanguage {
 
     @ManyToOne
     private Feature feature;
+
+
 }

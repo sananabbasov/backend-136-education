@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{dashboard/layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">SB Admin 2 - Blank</title>
+
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <div layout:fragment="content" class="container-fluid">
+
+
+            <h3 class="mb-4">Banner Yeniləmə Formu</h3>
+
+            <form>
+
+                <!-- Foto URL -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Foto URL</label>
+                    <input th:value="${banner.photoUrl}" type="text" class="form-control" name="photoUrl" placeholder="Foto üçün URL daxil edin">
+                </div>
+
+                <hr>
+
+                <h5 class="fw-bold">Banner Dilləri</h5>
+
+                <!-- DİL BLOKU - 1 (AZ) -->
+                <div th:each="bl : ${banner.bannerLanguages}" class="border rounded p-3 mt-3 bg-light">
+
+                    <div class="mt-2">
+                        <label class="form-label">Dil Kodu</label>
+                        <input type="text" class="form-control" th:value="${bl.langCode}"  readonly>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">Başlıq</label>
+                        <input th:value="${bl.title}" type="text" class="form-control"  placeholder="Başlıq daxil edin">
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">Açıqlama</label>
+                        <textarea  th:text="${bl.subtitle}"  class="form-control"  rows="3" placeholder="Açıqlama daxil edin"></textarea>
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-success mt-4">
+                    Yadda Saxla
+                </button>
+
+            </form>
+
+        </div>
+
+        <style>
+            /* Formun vizual olaraq daha səliqəli görünməsi üçün sadə CSS */
+            h3, h5, h6 {
+                color: #333;
+            }
+
+            .border {
+                border-color: #ddd !important;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        </style>
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
