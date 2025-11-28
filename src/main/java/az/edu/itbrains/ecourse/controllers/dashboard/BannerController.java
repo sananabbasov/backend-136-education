@@ -34,6 +34,8 @@ public class BannerController {
     @PostMapping("/admin/banner/create")
     public String createBanner(BannerCreateDto bannerCreateDto){
 
+        boolean result = bannerService.createBanner(bannerCreateDto);
+
         return "redirect:/admin/banner";
     }
 
@@ -42,6 +44,13 @@ public class BannerController {
         BannerUpdateDto bannerUpdateDto = bannerService.getUpdatedBanner(id);
         model.addAttribute("banner",bannerUpdateDto);
         return "dashboard/banner/update.html";
+    }
+
+
+    @PostMapping("/admin/banner/update/{id}")
+    public String editBanner(@PathVariable Long id, BannerUpdateDto bannerUpdateDto){
+        boolean result = bannerService.updateBanner(id, bannerUpdateDto);
+        return "redirect:/admin/banner";
     }
 
 

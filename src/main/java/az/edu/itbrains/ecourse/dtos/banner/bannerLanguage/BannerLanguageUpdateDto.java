@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BannerLanguageUpdateDto {
+    private Long id;
     private String title;
     private String subtitle;
     private String langCode;

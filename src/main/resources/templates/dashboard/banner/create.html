@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{dashboard/layout}">
+      layout:decorate="~{dashboard/layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -23,10 +23,87 @@
     <div layout:fragment="content" class="container-fluid">
 
 
+        <h3 class="mb-4">Banner Yeniləmə Formu</h3>
+
+        <form method="post">
+
+            <!-- Foto URL -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Foto URL</label>
+                <input  type="text" class="form-control" name="photoUrl" placeholder="Foto üçün URL daxil edin">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">Banner Dilləri</h5>
+
+            <!-- DİL BLOKU - 1 (AZ) -->
+            <div  class="border rounded p-3 mt-3 bg-light">
+
+                <div class="mt-2">
+                    <label class="form-label">Dil Kodu</label>
+                    <input type="text" class="form-control"  value="az" readonly>
+                </div>
+
+                <div class="mt-2">
+                    <label class="form-label">Başlıq</label>
+                    <input  type="text" class="form-control" th:name="bannerLanguages[0].title"   placeholder="Başlıq daxil edin">
+                </div>
+
+                <div class="mt-2">
+                    <label class="form-label">Açıqlama</label>
+                    <textarea    class="form-control" th:name="bannerLanguages[0].subtitle"   rows="3" placeholder="Açıqlama daxil edin"></textarea>
+                </div>
+            </div>
 
 
+            <!-- DİL BLOKU - 1 (AZ) -->
+            <div  class="border rounded p-3 mt-3 bg-light">
+
+                <div class="mt-2">
+                    <label class="form-label">Dil Kodu</label>
+                    <input type="text" class="form-control" value="en" readonly>
+                </div>
+
+                <div class="mt-2">
+                    <label class="form-label">Başlıq</label>
+                    <input  type="text" class="form-control" th:name="bannerLanguages[1].title"   placeholder="Başlıq daxil edin">
+                </div>
+
+                <div class="mt-2">
+                    <label class="form-label">Açıqlama</label>
+                    <textarea    class="form-control" th:name="bannerLanguages[1].subtitle"   rows="3" placeholder="Açıqlama daxil edin"></textarea>
+                </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-success mt-4">
+                Yadda Saxla
+            </button>
+
+        </form>
 
     </div>
+
+    <style>
+        /* Formun vizual olaraq daha səliqəli görünməsi üçün sadə CSS */
+        h3, h5, h6 {
+            color: #333;
+        }
+
+        .border {
+            border-color: #ddd !important;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+
+
+
+
 
 </div>
 

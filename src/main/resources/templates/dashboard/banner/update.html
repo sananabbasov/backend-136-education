@@ -25,7 +25,7 @@
 
             <h3 class="mb-4">Banner Yeniləmə Formu</h3>
 
-            <form>
+            <form method="post">
 
                 <!-- Foto URL -->
                 <div class="mb-3">
@@ -38,21 +38,21 @@
                 <h5 class="fw-bold">Banner Dilləri</h5>
 
                 <!-- DİL BLOKU - 1 (AZ) -->
-                <div th:each="bl : ${banner.bannerLanguages}" class="border rounded p-3 mt-3 bg-light">
-
+                <div th:each="bl, i : ${banner.bannerLanguages}" class="border rounded p-3 mt-3 bg-light">
+                    <input type="hidden" th:value="${bl.id}" th:name="'bannerLanguages['+${i.index}+'].id'">
                     <div class="mt-2">
                         <label class="form-label">Dil Kodu</label>
-                        <input type="text" class="form-control" th:value="${bl.langCode}"  readonly>
+                        <input type="text" class="form-control" th:value="${bl.langCode}" th:name="'bannerLanguages['+${i.index}+'].langCode'" readonly>
                     </div>
 
                     <div class="mt-2">
                         <label class="form-label">Başlıq</label>
-                        <input th:value="${bl.title}" type="text" class="form-control"  placeholder="Başlıq daxil edin">
+                        <input th:value="${bl.title}" type="text" class="form-control" th:name="'bannerLanguages['+${i.index}+'].title'"   placeholder="Başlıq daxil edin">
                     </div>
 
                     <div class="mt-2">
                         <label class="form-label">Açıqlama</label>
-                        <textarea  th:text="${bl.subtitle}"  class="form-control"  rows="3" placeholder="Açıqlama daxil edin"></textarea>
+                        <textarea  th:text="${bl.subtitle}"  class="form-control" th:name="'bannerLanguages['+${i.index}+'].subtitle'"   rows="3" placeholder="Açıqlama daxil edin"></textarea>
                     </div>
                 </div>
 
